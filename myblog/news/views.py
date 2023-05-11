@@ -2,11 +2,23 @@ from django.shortcuts import render, redirect
 from .models import Articles
 from .forms import ArticlesForm
 from django.views.generic import DetailView, UpdateView, DeleteView, ListView
-from django.core.paginator import Paginator, PageNotAnInteger
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def news_home(request):
     news = Articles.objects.order_by('-date')
+    paginator = Paginator(news, 4)  # 4 новости на странице
+    page = request.GET.get('page')
+
+    try:
+        news = paginator.page(page)
+    except PageNotAnInteger:
+        # Если параметр страницы не является целым числом, отображаем первую страницу
+        news = paginator.page(1)
+    except EmptyPage:
+        # Если параметр страницы больше, чем общее количество страниц, отображаем последнюю страницу
+        news = paginator.page(paginator.num_pages)
+
     return render(request, 'news/news_home.html', {'news': news})
 
 

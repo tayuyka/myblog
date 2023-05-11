@@ -11,6 +11,23 @@
                 <a href="{% url 'news_detail' el.id %}" class="btn btn-warning">Читать</a>
             </div>
         {% endfor %}
+         <div class="pagination">
+            {% if news.has_previous %}
+                <a href="?page={{ news.previous_page_number }}" class="pagination-link">Previous</a>
+            {% endif %}
+
+            {% for num in news.paginator.page_range %}
+                {% if num == news.number %}
+                    <span class="current-page">{{ num }}</span>
+                {% else %}
+                    <a href="?page={{ num }}" class="pagination-link">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if news.has_next %}
+                <a href="?page={{ news.next_page_number }}" class="pagination-link">Next</a>
+            {% endif %}
+        </div>
         {% else %}
             <p>Нет записей</p>
         {% endif %}
