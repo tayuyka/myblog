@@ -18,10 +18,10 @@
         <h3>Меню</h3>
         <ul>
             <a href="{% url 'home' %}" ><li><i class="fa-sharp fa-solid fa-house"></i> Главная</li></a>
-            <a href="{% url 'news_home' %}"><li><i class="fa-solid fa-newspaper"></i></i> Новости</li></a>
+            <a href="{% url 'news_home' %}"><li><i class="fa-solid fa-newspaper"></i></i> Записи</li></a>
             <a href="{% url 'about' %}"><li><i class="fa-sharp fa-solid fa-person"></i></i> Об авторе</li></a>
         </ul>
-        <a href="{% url 'create' %}"><button  class="btn btn-info"><i class="fa-solid fa-circle-plus"></i> Добавить запись</button></a>
+        <a class="AddBtn" href="{% url 'create' %}"><button  class="btn btn-info"><i class="fa-solid fa-circle-plus"></i> Добавить запись</button></a>
     </aside>
     <main>
         {% block content %}
