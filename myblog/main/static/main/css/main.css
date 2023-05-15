@@ -8,9 +8,9 @@ aside{
     background: #724C9D;
     width: 20%;
     padding: 2.5%;
-    height: 150vh;
+    height: 160vh;
     color: #DCCAE9;
-    border-right: 5px solid black;
+    border-right: 5px solid #DCCAE9;
 
 }
 
@@ -88,7 +88,7 @@ aside ul li:hover, aside ul a:hover {
 main .features {
     float: left;
     color: white;
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: center;
     width: 75%;
     
@@ -100,6 +100,7 @@ main .features h1 {
 }
 
 main .features p {
+        text-align: justify;
     max-width: 400px;
     margin: 20px auto;
 }
@@ -120,8 +121,49 @@ form{
 
 
 .AddBtn {
+    margin-left: 15px;
     text-decoration: none;
-    position: fixed;
-  left: 60px;
-  bottom: 30px;
+}
+
+.rectangle {
+    background: #724C9D;
+    color: black;
+    
+  position: fixed;
+  bottom: 20px;
+  left: 35px;
+  width: 200px;
+  height: 100px;
+    border-radius: 10px;
+  
+}
+
+.LogBtn{
+    margin-top: 7px;
+    
+    display: flex;
+  justify-content: left;
+    text-decoration: none;
+}
+
+.LogoutBtn{
+    margin-top: 7px;
+    
+    display: flex;
+  justify-content: left;
+    text-decoration: none;
+}
+
+.RegBtn{
+    display: flex;
+    
+    margin-top: 10px;
+  justify-content: left;
+    text-decoration: none;
+}
+
+.hello{
+     display: flex;
+  align-items: center;
+    color: #DCCAE9;
 }
