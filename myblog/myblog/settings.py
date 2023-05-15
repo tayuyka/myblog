@@ -34,13 +34,26 @@ INSTALLED_APPS = [
     'bleach',
     'main',
     'news',
-    'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# URL-путь для страницы входа (может быть настроен по вашему усмотрению)
+LOGIN_URL = '/login/'
+
+# URL-путь, на который перенаправлять после успешного входа (может быть настроен по вашему усмотрению)
+LOGIN_REDIRECT_URL = '/'
+
+# URL-путь для страницы выхода (может быть настроен по вашему усмотрению)
+LOGOUT_URL = '/logout/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,3 +141,5 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
